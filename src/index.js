@@ -10,6 +10,18 @@ CommonJS modules system.
 import ReactDOM from 'react-dom';
 
 // 2. Create a React component.
-
+/* A React component is a function or class that produces HTML to shows the user (using JSX) and handles feedback from
+the user (using event handlers).
+ */
+const App = () => {
+    return <div>Hi there!</div>; // Returns JSX
+};
 
 // 3. Take the React component and render it on the page.
+ReactDOM.render(
+    <App />,
+    /* The querySelector is referencing the div element whose id is 'root' within the index.html file within the public
+    folder.
+     */
+    document.querySelector('#root')
+);
