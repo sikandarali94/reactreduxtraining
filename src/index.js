@@ -39,6 +39,10 @@ const App = () => {
     Within curly braces ({{}}), the outer curly brace inside JSX indicates that we want to reference a JavaScript
     variable; the inner curly brace is meant to reference a JS object.
      */
+    /* By convention, in JSX, we use double quotes for strings and single quotes for any non-JSX property like the value
+    of styling properties, as shown below where 'blue' is wrapped in single quotes in the button element. However, this
+    is just a convention and some people don't follow it.
+     */
     return (
         <div>
             <label class="label" for="name">Enter name:</label>
