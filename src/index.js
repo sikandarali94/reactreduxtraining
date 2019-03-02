@@ -29,11 +29,21 @@ const App = () => {
     /* The HTML we returned below invokes an error in the React application. This means that the below HTML is not valid
     JSX.
      */
+    /* These are the differences between JSX and HTML:
+    1. The syntax of adding custom styling to an element is different between JSX and HTML:
+        HTML: <div style="background-color: red;"></div>
+        JSX: <div style={{backgroundColor: 'red'}}></div>
+    2. The syntax of adding a class to an element is different between JSX and HTML.
+    3. Finally, JSX can reference JS variables while HTML can not.
+
+    Within curly braces ({{}}), the outer curly brace inside JSX indicates that we want to reference a JavaScript
+    variable; the inner curly brace is meant to reference a JS object.
+     */
     return (
         <div>
             <label class="label" for="name">Enter name:</label>
             <input id="name" type="text" />
-            <button style="background-color: blue; color: white;">Submit</button>
+            <button style={{backgroundColor: 'blue', color: 'white'}}>Submit</button>
         </div>
     );
 };
