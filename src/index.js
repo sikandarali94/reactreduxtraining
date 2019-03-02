@@ -13,7 +13,19 @@ import ReactDOM from 'react-dom';
 /* A React component is a function or class that produces HTML to shows the user (using JSX) and handles feedback from
 the user (using event handlers).
  */
+/* With Babel, the
+ */
 const App = () => {
+    /* While JSX looks like HTML, it is actually not. Babel converts the return statement below to:
+    return React.createElement(
+        "div",
+        null,
+        "Hi there!"
+    );
+    Therefore JSX is just a convenient way of creating an element in React. At the end of the day, JSX is converted
+    to a React.createElement() function call. JSX helps us write complicated HTML elements easily rather than tediously
+    mapping out React.createElement() function calls.
+     */
     return <div>Hi there!</div>; // Returns JSX
 };
 
