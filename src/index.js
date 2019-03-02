@@ -26,7 +26,16 @@ const App = () => {
     to a React.createElement() function call. JSX helps us write complicated HTML elements easily rather than tediously
     mapping out React.createElement() function calls.
      */
-    return <div>Hi there!</div>; // Returns JSX
+    /* The HTML we returned below invokes an error in the React application. This means that the below HTML is not valid
+    JSX.
+     */
+    return (
+        <div>
+            <label class="label" for="name">Enter name:</label>
+            <input id="name" type="text" />
+            <button style="background-color: blue; color: white;">Submit</button>
+        </div>
+    );
 };
 
 // 3. Take the React component and render it on the page.
