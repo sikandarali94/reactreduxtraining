@@ -33,7 +33,12 @@ const App = () => {
     1. The syntax of adding custom styling to an element is different between JSX and HTML:
         HTML: <div style="background-color: red;"></div>
         JSX: <div style={{backgroundColor: 'red'}}></div>
-    2. The syntax of adding a class to an element is different between JSX and HTML.
+    2. The syntax of adding a class to an element is different between JSX and HTML. Instead of writing class in JSX, we
+    write className to add a class to an element. This is because class is a JS keyword, although JS today is smart
+    enough to discern the use of class within an element as opposed to a class declaration. This is why we don't get any
+    errors when we just write class.
+        HTML: <label class="label" for="name">Enter name:</label>
+        JSX: <label className="label" for="name">Enter name:</label>
     3. Finally, JSX can reference JS variables while HTML can not.
 
     Within curly braces ({{}}), the outer curly brace inside JSX indicates that we want to reference a JavaScript
@@ -45,7 +50,7 @@ const App = () => {
      */
     return (
         <div>
-            <label class="label" for="name">Enter name:</label>
+            <label className="label" for="name">Enter name:</label>
             <input id="name" type="text" />
             <button style={{backgroundColor: 'blue', color: 'white'}}>Submit</button>
         </div>
