@@ -9,6 +9,11 @@ CommonJS modules system.
  */
 import ReactDOM from 'react-dom';
 
+
+function getButtonText() {
+    return 'Click on me!';
+}
+
 // 2. Create a React component.
 /* A React component is a function or class that produces HTML to shows the user (using JSX) and handles feedback from
 the user (using event handlers).
@@ -16,6 +21,7 @@ the user (using event handlers).
 /* With Babel, the
  */
 const App = () => {
+    // const buttonText = 'Click Me!';
     /* While JSX looks like HTML, it is actually not. Babel converts the return statement below to:
     return React.createElement(
         "div",
@@ -39,7 +45,9 @@ const App = () => {
     errors when we just write class.
         HTML: <label class="label" for="name">Enter name:</label>
         JSX: <label className="label" for="name">Enter name:</label>
-    3. Finally, JSX can reference JS variables while HTML can not.
+    3. Finally, JSX can reference JS variables while HTML can not (this is the most important feature of JSX). Single
+    curly braces ({}) does not indicate that we are referencing a JS object but rather a JS variable, however, we can
+    also reference a function using single curly brace ({}).
 
     Within curly braces ({{}}), the outer curly brace inside JSX indicates that we want to reference a JavaScript
     variable; the inner curly brace is meant to reference a JS object.
@@ -52,7 +60,9 @@ const App = () => {
         <div>
             <label className="label" for="name">Enter name:</label>
             <input id="name" type="text" />
-            <button style={{backgroundColor: 'blue', color: 'white'}}>Submit</button>
+            <button style={{backgroundColor: 'blue', color: 'white'}}>
+                {getButtonText()}
+            </button>
         </div>
     );
 };
