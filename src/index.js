@@ -9,11 +9,6 @@ CommonJS modules system.
  */
 import ReactDOM from 'react-dom';
 
-
-function getButtonText() {
-    return 'Click on me!';
-}
-
 // 2. Create a React component.
 /* A React component is a function or class that produces HTML to shows the user (using JSX) and handles feedback from
 the user (using event handlers).
@@ -21,6 +16,17 @@ the user (using event handlers).
 /* With Babel, the
  */
 const App = () => {
+    /* We can reference a number with JSX and even an array (where the values are concatenated into a single string) as
+    text. However, we cannot reference an object with JSX as text, but if the object's properties have values that JSX
+    can reference as text, then we can reference those object properties with JSX as text.
+     */
+    const buttonText = {text: 'Click me'};
+    /* Where we can reference an object in JSX is if we are not using them to print text but, for example, when we are
+    using it as a way to store style properties. We can then reference the object in the style attribute, as shown
+    below.
+     */
+    const style = {backgroundColor: 'blue', color: 'white'};
+    const labelText = 'Enter name:';
     // const buttonText = 'Click Me!';
     /* While JSX looks like HTML, it is actually not. Babel converts the return statement below to:
     return React.createElement(
@@ -58,10 +64,10 @@ const App = () => {
      */
     return (
         <div>
-            <label className="label" for="name">Enter name:</label>
+            <label className="label" for="name">{labelText}</label>
             <input id="name" type="text" />
-            <button style={{backgroundColor: 'blue', color: 'white'}}>
-                {getButtonText()}
+            <button style={style}>
+                {buttonText.text}
             </button>
         </div>
     );
