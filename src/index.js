@@ -54,6 +54,11 @@ const App = () => {
     3. Finally, JSX can reference JS variables while HTML can not (this is the most important feature of JSX). Single
     curly braces ({}) does not indicate that we are referencing a JS object but rather a JS variable, however, we can
     also reference a function using single curly brace ({}).
+    There are more subtle differences between HTML and JSX, however, many of these differences will not crash our
+    application. For example, the for property is not identified by JSX to be a valid property; we have to write htmlFor
+    in this instance because for is a JS keyword for looping. To figure out what property names are forbidden in JSX,
+    it is usually advised to keep the JS console open (or reference it every now and then) and see if JSX throws an
+    error if it doesn't recognise a certain property.
 
     Within curly braces ({{}}), the outer curly brace inside JSX indicates that we want to reference a JavaScript
     variable; the inner curly brace is meant to reference a JS object.
@@ -64,7 +69,7 @@ const App = () => {
      */
     return (
         <div>
-            <label className="label" for="name">{labelText}</label>
+            <label className="label" htmlFor="name">{labelText}</label>
             <input id="name" type="text" />
             <button style={style}>
                 {buttonText.text}
