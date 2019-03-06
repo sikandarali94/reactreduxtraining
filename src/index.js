@@ -1,25 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+/* We should always strive to break down our application into as many components as appropriate. The below method is
+a naive way of using components. Later we will use a better method.
+ */
 const App = () => {
-    const buttonText = {text: 'Click me'};
-    const style = {backgroundColor: 'blue', color: 'white'};
-    const labelText = 'Enter name:';
-    /* These are the three tenets of components:
-    1. A component can be shown inside of another (component nesting).
-    2. We want to make components that can be easily reused through out our application (component reusability).
-    3. We should be able to configure a component when it is created (component configuration).
-     */
     return (
-        <div>
-            <label className="label" htmlFor="name">{labelText}</label>
-            <input id="name" type="text" />
-            <button style={style}>
-                {buttonText.text}
-            </button>
+        <div className="ui container comments">
+            <div className="comment">
+                <a href="/" className="avatar">
+                    <img alt="avatar" />
+                </a>
+                <div className="content">
+                    <a href="/" className="author">
+                        Sam
+                    </a>
+                    <div className="metadata">
+                        <span className="date">Today at 6:00PM</span>
+                    </div>
+                    <div className="text">Nice blog post!</div>
+                </div>
+            </div>
         </div>
     );
 };
-ReactDOM.render(
-    <App />,
-    document.querySelector('#root')
-);
+
+ReactDOM.render(<App />, document.querySelector('#root'));
+
