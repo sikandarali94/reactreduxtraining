@@ -1,5 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+/* Here we don't need to put the .js endpoint to CommonDetail because JS will automatically look for .js files in the
+director we point it to.
+ */
+import CommonDetail from './CommonDetail';
 /* We are using the Faker.js library to generate fake images within our app. Faker.js is used to create a lot of fake
 data.
  */
@@ -17,6 +21,7 @@ a naive way of using components. Later we will use a better method.
 const App = () => {
     return (
         <div className="ui container comments">
+            <CommonDetail/>
         </div>
     );
 };

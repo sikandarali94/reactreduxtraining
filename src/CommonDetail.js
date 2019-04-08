@@ -22,3 +22,7 @@ const CommonDetail = () => {
         </div>
     );
 };
+
+/* This statement below is what makes CommonDetail available to the rest of our React app.
+ */
+export default CommonDetail;
