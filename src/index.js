@@ -18,6 +18,9 @@ a naive way of using components. Later we will use a better method.
 4. Create a new component in the new file, paste the JSX into it.
 5. Make the new component configurable by using React's 'props' system.
  */
+/* The Props system is used for passing data from a parent component to a child component. The goal is to customize or
+configure a child component.
+ */
 const App = () => {
     return (
         <div className="ui container comments">
