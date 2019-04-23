@@ -4,7 +4,9 @@ are usually written in upper case (in our case, it is CommonDetail.js).
 import React from 'react';
 import faker from 'faker';
 
-const CommonDetail = () => {
+/* So we receive the properties we pass into the component as the props argument. as shown below.
+ */
+const CommonDetail = (props) => {
     return (
         <div className="comment">
             <a href="/" className="avatar">
@@ -12,7 +14,7 @@ const CommonDetail = () => {
             </a>
             <div className="content">
                 <a href="/" className="author">
-                    Sam
+                    {props.author}
                 </a>
                 <div className="metadata">
                     <span className="date">Today at 6:00PM</span>

@@ -19,12 +19,15 @@ a naive way of using components. Later we will use a better method.
 5. Make the new component configurable by using React's 'props' system.
  */
 /* The Props system is used for passing data from a parent component to a child component. The goal is to customize or
-configure a child component.
+configure a child component. With the Props (properties) system, a child component cannot pass data to a parent
+component directly.
  */
 const App = () => {
     return (
         <div className="ui container comments">
-            <CommonDetail/>
+            <CommonDetail author="Sam"/>
+            <CommonDetail author="Alex"/>
+            <CommonDetail author="Jane"/>
         </div>
     );
 };
