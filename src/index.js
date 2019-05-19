@@ -24,16 +24,21 @@ a naive way of using components. Later we will use a better method.
 configure a child component. With the Props (properties) system, a child component cannot pass data to a parent
 component directly.
  */
+
+/* Below, the CommonDetail component is a child of the ApprovalCard component. Also, we would call the CommonDetail
+component a prop of ApprovalCard because we are providing some configuration to the ApprovalCard component.
+ */
 const App = () => {
     return (
         <div className="ui container comments">
-            <ApprovalCard/>
-            <CommonDetail
-                avatar={faker.image.avatar()}
-                author="Sam"
-                timeAgo="Today at 4:45PM"
-                blogPost="Hello there people."
-            />
+            <ApprovalCard>
+                <CommonDetail
+                    avatar={faker.image.avatar()}
+                    author="Sam"
+                    timeAgo="Today at 4:45PM"
+                    blogPost="Hello there people."
+                />
+            </ApprovalCard>
             <CommonDetail
                 avatar={faker.image.avatar()}
                 author="Alex"
