@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import faker from 'faker';
 /* Here we don't need to put the .js endpoint to CommonDetail because JS will automatically look for .js files in the
 director we point it to.
  */
@@ -25,9 +26,24 @@ component directly.
 const App = () => {
     return (
         <div className="ui container comments">
-            <CommonDetail author="Sam"/>
-            <CommonDetail author="Alex"/>
-            <CommonDetail author="Jane"/>
+            <CommonDetail
+                avatar={faker.image.avatar()}
+                author="Sam"
+                timeAgo="Today at 4:45PM"
+                blogPost="Hello there people."
+            />
+            <CommonDetail
+                avatar={faker.image.avatar()}
+                author="Alex"
+                timeAgo="Today at 5:45PM"
+                blogPost="Bye guys. Have fun."
+            />
+            <CommonDetail
+                avatar={faker.image.avatar()}
+                author="Jane"
+                timeAgo="Yesterday at 6:45PM"
+                blogPost="Feeling sad, despite my profile pic."
+            />
         </div>
     );
 };
