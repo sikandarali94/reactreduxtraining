@@ -1,35 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import faker from 'faker';
-/* Here we don't need to put the .js endpoint to CommonDetail because JS will automatically look for .js files in the
-director we point it to.
- */
+
 import CommonDetail from './CommonDetail';
 import ApprovalCard from './ApprovalCard';
-/* We are using the Faker.js library to generate fake images within our app. Faker.js is used to create a lot of fake
-data.
- */
 
-/* We should always strive to break down our application into as many components as appropriate. The below method is
-a naive way of using components. Later we will use a better method.
+/* The general rule for deciding whether to use a Functional component or a Class component is:
+    Function components are good for simple content, while Class components are good for just about everything else.
  */
-/* Here are the steps we should take to create a reusable, configurable component in React:
-1. Identify the JSX that appears to be duplicated.
-2. What is the purpose of that block of JSX? Think of a descriptive name for what it does.
-3. Create a new file to house this new component - it should have the same name as the component.
-4. Create a new component in the new file, paste the JSX into it.
-5. Make the new component configurable by using React's 'props' system.
- */
-/* The Props system is used for passing data from a parent component to a child component. The goal is to customize or
-configure a child component. With the Props (properties) system, a child component cannot pass data to a parent
-component directly.
- */
-
-/* Below, the CommonDetail component is a child of the ApprovalCard component. Also, we would call the CommonDetail
-component a prop of ApprovalCard because we are providing some configuration to the ApprovalCard component.
- */
-/* Within a React component, we don't have to pass a React component for it to be inside the children property of the
-props object. We can even pass text like OR even plain JSX.
+/* Here are a few benefits to using Class components:
+    1. Easier code organisation.
+    2. Can use 'state' (another React system).
+    3. Easier to handle user input.
+    4. Understands lifecycle events.
+    5. Easier to do things when the app first starts.
  */
 const App = () => {
     return (

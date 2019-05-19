@@ -1,7 +1,5 @@
 import React from 'react';
 
-/* The CommonDetail component now exists as a property within props, and that property is called "children".
- */
 const ApprovalCard = (props) => {
     return (
         <div className="ui card">
