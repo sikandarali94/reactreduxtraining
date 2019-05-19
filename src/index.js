@@ -5,6 +5,7 @@ import faker from 'faker';
 director we point it to.
  */
 import CommonDetail from './CommonDetail';
+import ApprovalCard from './ApprovalCard';
 /* We are using the Faker.js library to generate fake images within our app. Faker.js is used to create a lot of fake
 data.
  */
@@ -26,6 +27,7 @@ component directly.
 const App = () => {
     return (
         <div className="ui container comments">
+            <ApprovalCard/>
             <CommonDetail
                 avatar={faker.image.avatar()}
                 author="Sam"
