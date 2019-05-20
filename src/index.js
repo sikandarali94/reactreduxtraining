@@ -1,17 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-/* The first callback function of getCurrentPosition() is run when the browser successfully receives a response. The
-second callback function runs when the browser unsuccessfully receives a response.
- */
-/* With functional components we do not really have any good way of handling async operations like using Geolocation
-API with the getCurrentPosition() method.
- */
-/* Here are some rules of class components:
-1. Must be a JavaScript class.
-2. Must extend (subclass) React.Component, which allows us to get a ton of functionality defined in React.Component into
-our class.
-3. Must define a 'render' method that returns some amount of JSX.
+/* Here are some rules of state in React:
+1. Only usable with class components (technically can be used with functional components using the 'hooks' system).
+2. 'State' is a JS object that contains data strictly relevant to a component.
+3. Updating 'state' on a component causes the component to (almost) instantly rerender.
+4. State must be initialized when a component is created.
+5. State can ONLY be updated using the function 'setState' (VERY IMPORTANT).
  */
 class App extends React.Component {
     render() {
