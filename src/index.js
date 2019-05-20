@@ -19,16 +19,23 @@ class App extends React.Component {
          */
         super(props);
 
+        /* Initializing state is the only time we do direct assignment to this.state.
+         */
         this.state = { lat: null }; // Initialize state
-    }
 
-    render() {
         window.navigator.geolocation.getCurrentPosition(
-            position => console.log(position),
+            position => {
+                this.setState({ lat: position.coords.latitude });
+            },
             err => console.log(err)
         );
+    }
 
-        return <div>Latitude: </div>;
+    /* The render() method is called many times so it is not a good place to initialize some work or some request like
+    we do with calling the getCurrentPosition() method.
+     */
+    render() {
+        return <div>Latitude: {this.state.lat}</div>;
     }
 }
 
