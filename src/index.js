@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import SeasonDisplay from './SeasonDisplay';
 
 /* The other way to initialize state is using the lifecycle methods.
  */
@@ -42,8 +43,12 @@ class App extends React.Component {
             return <div>Error: {this.state.errorMessage}</div>;
         }
 
+        /* By passing a state property to the SeasonDisplay (child component) component, whenever the state of App
+        (parent component) updates, it will not only cause itself to rerender but also cause SeasonDisplay (child
+        component) component to rerender.
+         */
         if (!this.state.errorMessage && this.state.lat) {
-            return <div>Latitude: {this.state.lat}</div>;
+            return <SeasonDisplay lat={this.state.lat} />
         }
 
         return <div>Loading!</div>;
