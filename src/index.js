@@ -25,11 +25,10 @@ import ReactDOM from 'react-dom';
 3. getSnapshotBeforeUpdate
  */
 class App extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = { lat: null, errorMessage: '' };
-    }
+    /* Writing this is the same as writing this.state = { lat: null, errorMessage: '' } in the constructor() method.
+    Babel automatically implements a constructor method with state initialization when we write the line of code below.
+     */
+    state = { lat: null, errorMessage: '' };
 
     componentDidMount() {
         window.navigator.geolocation.getCurrentPosition(
