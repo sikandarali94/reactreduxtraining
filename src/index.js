@@ -39,7 +39,7 @@ class App extends React.Component {
         );
     }
 
-    render() {
+    renderContent() {
         if (this.state.errorMessage && !this.state.lat) {
             return <div>Error: {this.state.errorMessage}</div>;
         }
@@ -53,6 +53,17 @@ class App extends React.Component {
         }
 
         return <Spinner message="Please accept location request"/>;
+    }
+
+    render() {
+        /* In general, anytime we make a component we always try as much as possible to not have multiple return
+        statements inside the render() method. Instead we should use a helper method as show above.
+         */
+        return (
+            <div className="border red">
+                {this.renderContent()}
+            </div>
+        );
     }
 }
 
