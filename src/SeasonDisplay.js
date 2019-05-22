@@ -1,3 +1,7 @@
+/* Webpack sees that we are importing a .css file into a .js file. It automatically takes the .css file and places it
+inside index.html.
+ */
+import './SeasonDisplay.css';
 import React from 'react';
 
 const seasonConfig = {
@@ -24,10 +28,10 @@ const SeasonDisplay = props => {
     const {text, iconName} = seasonConfig[season];
 
     return (
-        <div>
-            <i className={`${iconName} icon`}/>
+        <div className={`season-display ${season}`}>
+            <i className={`icon-left massive ${iconName} icon`}/>
             <h1>{text}</h1>
-            <i className={`${iconName} icon`}/>
+            <i className={`icon-right massive ${iconName} icon`}/>
         </div>
     );
 };
