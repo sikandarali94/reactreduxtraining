@@ -7,9 +7,20 @@ class SearchBar extends React.Component {
     /* If we want to execute only a single line of code for an event, it is cleaner to do it with the syntax shown
     below.
      */
-    /* The <input> we had before was an uncontrolled element. We want to make the <input> a controlled element.
+    /* The <input> we had before was an uncontrolled element. We want to make the <input> a controlled element. The
+    reason <input> below is now a controlled element is because every time a user inputs a value into the <input>, it
+    causes the component to rerender with the user input value because we have saved it in the component state and
+    linked it to the value attribute of the <input> element.
+
+    The reason we prefer a controlled element over an uncontrolled element is because with an uncontrolled element we
+    can only know its attributes (in our case the value of the input) through the DOM (meaning the source of truth is
+    in the DOM), whereas in a controlled element we know the attributes of the element in our React code (meaning the
+    source of truth is in React) through the state (in our case the value of the input).
+
+    Controlled elements let us easily perform operations like setting a default value or upper-casing the value of the
+    input, as shown below.
      */
-    state = { term: '' };
+    state = { term: 'Hi there!' };
 
     render() {
         return (
@@ -20,7 +31,7 @@ class SearchBar extends React.Component {
                     <input
                         type="text"
                         value={this.state.term}
-                        onChange={(e) => this.setState({ term: e.target.value })}
+                        onChange={(e) => this.setState({ term: e.target.value.toUpperCase() })}
                     />
                     </div>
                 </form>
