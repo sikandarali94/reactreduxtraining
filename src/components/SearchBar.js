@@ -7,6 +7,10 @@ class SearchBar extends React.Component {
     /* If we want to execute only a single line of code for an event, it is cleaner to do it with the syntax shown
     below.
      */
+    /* The <input> we had before was an uncontrolled element. We want to make the <input> a controlled element.
+     */
+    state = { term: '' };
+
     render() {
         return (
             <div className="ui segment">
@@ -15,7 +19,8 @@ class SearchBar extends React.Component {
                         <label>Image Search</label>
                     <input
                         type="text"
-                        onChange={(e) => console.log(e.target.value)}
+                        value={this.state.term}
+                        onChange={(e) => this.setState({ term: e.target.value })}
                     />
                     </div>
                 </form>
