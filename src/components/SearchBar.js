@@ -25,6 +25,12 @@ class SearchBar extends React.Component {
     onFormSubmit(event) {
         // Prevents the form or browser from trying to submit.
         event.preventDefault();
+
+        /* Gives us the error -> TypeError: Cannot read property 'state' of undefined. This is because when onFormSubmit
+        is invoked, there will be no value of the 'this' keyword. Instead it is invoked as simple onFormSubmit() so the
+        'this' keyword inside of the onFormSubmit() method is replaced with undefined.
+         */
+        console.log(this.state.term);
     }
 
     render() {
