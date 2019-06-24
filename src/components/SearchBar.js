@@ -1,3 +1,6 @@
+/* The props system only allows us to pass information from the parent component down to a child. However, in this case
+we want to pas information from a child component to a parent component.
+ */
 import React from 'react';
 
 class SearchBar extends React.Component {
