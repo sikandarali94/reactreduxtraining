@@ -1,5 +1,8 @@
 /* The props system only allows us to pass information from the parent component down to a child. However, in this case
 we want to pas information from a child component to a parent component.
+
+To pass information from child to parent (App component), in this case, we make the App component a class-based
+component where we define a method inside and pass it as a callback function to the SearchBar component.
  */
 import React from 'react';
 
@@ -35,7 +38,7 @@ class SearchBar extends React.Component {
 
         To fix this context issue we utilise arrow functions, as shown below.
          */
-        console.log(this.state.term);
+        this.props.whenUserSubmits(this.state.term);
     };
 
     render() {
