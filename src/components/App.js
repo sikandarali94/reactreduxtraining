@@ -14,7 +14,7 @@ class App extends React.Component {
     requests (fetch [built into modern browsers] OR axios [3rd party package]). We will use the Axios library because
     it takes less code to implement it as compared to using Fetch, and it handles edge cases for us.
      */
-    async onSearchSubmit(term) {
+    onSearchSubmit = async (term) => {
         const response = await axios.get('https://api.unsplash.com/search/photos', {
             params: { query: term },
             headers: {
