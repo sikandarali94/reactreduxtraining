@@ -1,6 +1,6 @@
 import React from 'react';
-import axios from 'axios';
 
+import unsplash from '../api/unsplash';
 import SearchBar from './SearchBar';
 
 class App extends React.Component {
@@ -15,11 +15,8 @@ class App extends React.Component {
     it takes less code to implement it as compared to using Fetch, and it handles edge cases for us.
      */
     onSearchSubmit = async (term) => {
-        const response = await axios.get('https://api.unsplash.com/search/photos', {
-            params: { query: term },
-            headers: {
-                Authorization: 'Client-ID cc780cc1bf95fdb1d4276c7922a565c8bd1ebdaf2ac4d738bec9ee11de126b12'
-            }
+        const response = await unsplash.get('/search/photos', {
+            params: { query: term }
         });
         // We could use a .then() method to write code that executes after async call is successful. Alternatively we
         // can use async/await which is a lot easier to write.
@@ -33,7 +30,7 @@ class App extends React.Component {
         value of 'this'.
          */
         this.setState({ images: response.data.results });
-    }
+    };
 
     render() {
         return (
