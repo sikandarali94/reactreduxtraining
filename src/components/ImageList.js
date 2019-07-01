@@ -1,5 +1,6 @@
-import './ImageList.css';
 import React from 'react';
+import './ImageList.css';
+import ImageCard from './ImageCard';
 
 const ImageList = (props) => {
     /* We can even write this as:
@@ -13,8 +14,8 @@ const ImageList = (props) => {
     the key props (e.g. unique id values in the array list). If we don't have key props in DOM elements of a DOM list,
     React throws an error.
      */
-    const images = props.images.map(({ description, id, urls }) => {
-        return <img alt={description} key={id} src={urls.regular} />
+    const images = props.images.map((image) => {
+        return <ImageCard key={image.id} image={image} />
     });
 
     return <div className="image-list">{ images }</div>;
