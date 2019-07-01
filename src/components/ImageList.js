@@ -12,8 +12,8 @@ const ImageList = (props) => {
     the key props (e.g. unique id values in the array list). If we don't have key props in DOM elements of a DOM list,
     React throws an error.
      */
-    const images = props.images.map((image) => {
-        return <img src={image.urls.regular} />
+    const images = props.images.map(({ description, id, urls }) => {
+        return <img alt={description} key={id} src={urls.regular} />
     });
 
     return <div>{ images }</div>;
