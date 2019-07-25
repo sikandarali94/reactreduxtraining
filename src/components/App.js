@@ -5,12 +5,14 @@ the store. We tell the Connect components what pieces of the state in the store 
 they are wrapped around and different Action Creators we want to have wired up as well.
  */
 import React from 'react';
-/* If this was a 'default' export rather than a named export then we do not need curly braces.
- */
-// import { selectSong } from "../actions";
+import SongList from './SongList';
 
 const App = () => {
-    return <div>App</div>;
+    return (
+        <div>
+            <SongList/>
+        </div>
+    );
 };
 
 export default App;
