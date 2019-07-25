@@ -5,6 +5,9 @@ import { connect } from 'react-redux';
 import { selectSong } from '../actions';
 
 class SongList extends Component {
+    /* When we call this.props.selectSong(), because we put selectSong() in the connect method, Redux then executes
+    selectSong() within the dispatch() method without us having to.
+     */
     renderList() {
         return this.props.songs.map((song) => {
             return (
@@ -34,7 +37,6 @@ SongList that references the 'state.songs' property in the store. We also get ac
 props of SongList.
  */
 const mapStateToProps = state => {
-    console.log(state);
     return { songs: state.songs };
 };
 
