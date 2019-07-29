@@ -1,3 +1,5 @@
+/* redux-thunk is middleware to help us make requests in a redux application.
+ */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
