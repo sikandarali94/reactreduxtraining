@@ -22,6 +22,17 @@ export const fetchPosts = async () => {
     couple of seconds or more. This approach will not throw an error like async/await but the behaviour is not what we
     expect.
      */
+    /* So for API calls we need to use asynchronous action creators. If we want to have asynchronous action creators
+    inside of a Redux application we have to install something called a middleware. This is where redux-thunk comes in.
+    With middleware, rather than sending all our actions to a reducer, we send them to all of the different middlewares
+    inside of our application.
+
+    These are some important facts about middleware:
+    - Function that gets called with every action we dispatch.
+    - Has the ability to STOP, MODIFY, or otherwise mess around with actions.
+    - Tons of open source middleware exist.
+    - Most popular use of middleware is for dealing with async actions.
+     */
     const response = await jsonPlaceholder.get('/posts');
 
     // Bad approach.
