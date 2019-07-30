@@ -33,6 +33,16 @@ export const fetchPosts = async () => {
     - Tons of open source middleware exist.
     - Most popular use of middleware is for dealing with async actions.
      */
+    /* The changes that redux-thunk makes with our action creators are:
+    1. Action creators can return action objects rather than must, because redux-thunk now allows action creators to
+    return functions! If we return a function redux-thunk will automatically call that function for us.
+    2. redux-thunk checks whether an action creator returns an object or a function. If it returns just an object then
+    redux-thunk just passes it to the reducers directly. However, if it returns a function, then redux-thunk calls that
+    function with the dispatch and getState method by passing it into the arguments. In the function we can then wait
+    for the API request to finish before dispatching the action manually which return an object. When the new dispatched
+    action passes through redux-thunk again, redux-thunk will pass it directly to the reducer because it now returns an
+    object.
+     */
     const response = await jsonPlaceholder.get('/posts');
 
     // Bad approach.
