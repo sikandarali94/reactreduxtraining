@@ -1,6 +1,4 @@
 import jsonPlaceholder from '../apis/jsonPlaceholder';
-
-export const fetchPosts = async () => {
     /* It is a bad approach to set an await expression to a variable and then putting that variable directly into the
     payload of an action.
     We get the error:
@@ -43,11 +41,13 @@ export const fetchPosts = async () => {
     action passes through redux-thunk again, redux-thunk will pass it directly to the reducer because it now returns an
     object.
      */
-    const response = await jsonPlaceholder.get('/posts');
+    /* With redux-thunk we now have to ability to return functions (thus allowing us to use async/await) as show below.
+    However, we can still write normal action creators that just return an object with a type property with the optional
+    payload property.
 
-    // Bad approach.
-    return {
-        type: 'FETCH_POSTS',
-        payload: response
+    Note: we don't always have to pass getState into our inner function, as shown below.
+     */
+    export const fetchPosts = () => async dispatch => {
+        const response = await jsonPlaceholder.get('/posts');
+        dispatch({ type: 'FETCH_POSTS', payload: response });
     };
-};
