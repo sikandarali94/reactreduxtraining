@@ -12,6 +12,16 @@ export const fetchPosts = async () => {
     response }" when data has not been fetched from the API.
     2. By the time our action gets to a reducer, we won't have fetched our data!
      */
+    /* If we write the reducer like this with promises:
+    export const fetchPosts = () => {
+        const promise = jsonPlaceholder.get('/posts');
+        return { type: 'FETCH_POSTS', payload: response };
+    }
+    However, this is still a bad approach because by the time our action gets to a reducer we will not have fetched our
+    data back, because it takes a fraction of a millisecond for an action to get to a reducer while an API call takes a
+    couple of seconds or more. This approach will not throw an error like async/await but the behaviour is not what we
+    expect.
+     */
     const response = await jsonPlaceholder.get('/posts');
 
     // Bad approach.
