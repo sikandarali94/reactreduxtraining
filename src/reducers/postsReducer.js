@@ -1,4 +1,4 @@
-export default (state, action) => {
+export default (state = [], action) => {
     /* A reducer can never ever return undefined during initialization. It must always return a value besides undefined,
     as shown below.
      */
@@ -42,5 +42,10 @@ export default (state, action) => {
     as it still leaves the key inside the object but just assigns it a value of undefined. True removal is done using
     lodash's _.omit() method)
      */
-    return 123;
+    switch (action.type) {
+        case 'FETCH_POSTS':
+            return action.payload;
+        default:
+            return state;
+    }
 };
