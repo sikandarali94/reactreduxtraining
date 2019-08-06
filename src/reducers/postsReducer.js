@@ -19,5 +19,28 @@ export default (state, action) => {
 
     On top of that, we should not return the 'state' argument even if we have not made changes to it.
      */
+
+    /* Here are good ways/examples to do state updates in reducers that does not mutate 'state'
+
+    Removing an element from an array:
+    newState = state.filter(element => element !== 'hi')
+
+    Adding an element to an array:
+    newState = [...state, 'hi']
+
+    Replacing an element in an array:
+    newState = state.map(el => el === 'hi' ? 'bye' : el)
+
+    Updating a property in an object:
+    newState = { ...state, name: 'Sam' }
+
+    Adding a property to an object:
+    newState = { ...state, age: 30 }
+
+    Removing a property from an object:
+    newState = { ...state, age: undefined } (OR using lodash's _.omit() method because it is not recommended to do this
+    as it still leaves the key inside the object but just assigns it a value of undefined. True removal is done using
+    lodash's _.omit() method)
+     */
     return 123;
 };
