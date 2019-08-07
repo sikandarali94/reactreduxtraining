@@ -7,10 +7,24 @@ class PostList extends React.Component {
         this.props.fetchPosts();
     }
 
+    renderList() {
+        return this.props.posts.map(post => {
+            return (
+                <div className="item" key={post.id}>
+                    <i className="large middle aligned icon user" />
+                    <div className="content">
+                        <div className="description">
+                            <h2>{post.title}</h2>
+                            <p>{post.body}</p>
+                        </div>
+                    </div>
+                </div>
+            );
+        });
+    }
+
     render() {
-        /* That is why this will log twice. Once as an empty array ([]), the other as the actual posts data.*/
-        // console.log(this.props.posts);
-        return <div>Post List</div>;
+        return <div className="ui relaxed divided list">{this.renderList()}</div>;
     }
 }
 
