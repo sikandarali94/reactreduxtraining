@@ -42,6 +42,10 @@ export default (state = [], action) => {
     as it still leaves the key inside the object but just assigns it a value of undefined. True removal is done using
     lodash's _.omit() method)
      */
+    /* When our application loads up inside the browser, all of our reducers run one time with an action of some
+    initialization type. That action will not match any of the defined actions in our reducers, thus returning just
+    'state'. This is gonna cause the render method to be called.
+     */
     switch (action.type) {
         case 'FETCH_POSTS':
             return action.payload;

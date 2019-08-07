@@ -8,8 +8,14 @@ class PostList extends React.Component {
     }
 
     render() {
+        /* That is why this will log twice. Once as an empty array ([]), the other as the actual posts data.*/
+        // console.log(this.props.posts);
         return <div>Post List</div>;
     }
 }
 
-export default connect(null, { fetchPosts })(PostList);
+const mapStateToProps = state => {
+    return { posts: state.posts };
+};
+
+export default connect(mapStateToProps, { fetchPosts })(PostList);
