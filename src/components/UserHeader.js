@@ -1,3 +1,12 @@
+/* When we memoize a function, it only gets called once with certain arguments, and if we call the memoized function
+again with those same arguments it gives us back just the result of the original function call and doesn't actually
+call the function again. e.g.
+
+const memoizedGetUser = _.memoize(getUser); [using lodash's memoize() method]
+memoizedGetUser(3) // "Made a request!" [calls the getUser function]
+memoizedGetUser(3) // "Made a request!" [returns original result of getUser function call but doesn't call getUser]
+memoizedGetUser(2) // "Made a request!" [getUser is called because argument provided to getUser is different]
+ */
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchUser } from '../actions';
