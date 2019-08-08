@@ -2,9 +2,11 @@
 reducers in separate file, import them all into this index.js file, and then combine them using the combineReducers
 method, as shown below.
  */
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux';
 import postsReducer from './postsReducer';
+import usersReducer from './usersReducer';
 
 export default combineReducers({
-    posts: postsReducer
+    posts: postsReducer,
+    users: usersReducer
 });
