@@ -50,13 +50,15 @@ payload property.
 Note: we don't always have to pass getState into our inner function, as shown below.
  */
 
-export const fetchPostsAndUsers = () => async dispatch => {
+export const fetchPostsAndUsers = () => async (dispatch, getState) => {
     /* fetchPosts() returns an action creator that internally dispatches an action creator. So therefore we must
     dispatch the returned action creator so that 'dispatch({ type: 'FETCH_POSTS', payload: response.data })' runs.
     await makes sure that "const response = await jsonPlaceholder.get('/posts');" returns the data before we do anything
     else.
      */
     await dispatch(fetchPosts());
+    const userIds = _.uniq(_.map(getState().posts, 'userId'));
+    userIds.forEach(id => dispatch(fetchUser(id)));
 };
 
 export const fetchPosts = () => async dispatch => {
