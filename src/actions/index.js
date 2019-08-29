@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 import jsonPlaceholder from '../apis/jsonPlaceholder';
     /* It is a bad approach to set an await expression to a variable and then putting that variable directly into the
     payload of an action.
@@ -52,7 +54,9 @@ export const fetchPosts = () => async dispatch => {
     dispatch({ type: 'FETCH_POSTS', payload: response.data });
 };
 
-export const fetchUser = id => async dispatch => {
+export const fetchUser = id => dispatch => _fetchUser(id, dispatch);
+
+const _fetchUser = _.memoize(async (id, dispatch) => {
     const response = await jsonPlaceholder.get(`/users/${id}`);
     dispatch({ type: 'FETCH_USER', payload: response.data });
-};
+});
