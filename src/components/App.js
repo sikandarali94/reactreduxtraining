@@ -19,6 +19,9 @@ const PageTwo = () => {
 const App = () => {
     return (
         <div>
+            {/* The Browser Router listens to history (which keeps track of the address bar in the browser) for changes
+            to the URL. It then serves up the component registered with the URL path the browser is currently on.
+            */}
             <BrowserRouter>
                 <div>
                     {/* We use the exact attribute to match the entire URL, rather than as part of the URL. */}
