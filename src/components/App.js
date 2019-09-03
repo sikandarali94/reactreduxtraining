@@ -25,8 +25,13 @@ const App = () => {
             <BrowserRouter>
                 <div>
                     {/* We use the exact attribute to match the entire URL, rather than as part of the URL. */}
+                    {/* If we have routes with same paths all the components registered with those routes will render on
+                    the browser page. */}
+                    {/* If we remove the exact attribute of the '/' path, it will match everything because '/' is within
+                    every route path. */}
                     <Route path="/" exact component={PageOne} />
-                    <Route path="/pagetwo" component={PageTwo} />
+                    <Route path="/" exact component={PageOne} />
+                    <Route path="/pagetwo/" component={PageTwo} />
                 </div>
             </BrowserRouter>
         </div>
