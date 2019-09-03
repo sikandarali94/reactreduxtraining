@@ -1,14 +1,19 @@
 /* To install React Router from npm, we write this command: npm install --save react-router-dom. We must be careful
 * not to install react-router. */
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 /* The approach of using href tags to navigate in a React app is bad! This is because the href tag makes a request to
 the base URL server; the server responds with a new index.html file; the browser then receives the index.html file,
 dumps old HTML file it was showing (including all of our React/Redux state data!)*/
+/* Using Link is the approach we should use, as shown below. However, interestingly, behind the scenes Link is using
+<a></a> tags with href attribute. However the way it is set up is different to a traditional anchor (<a>) tag. When
+user clicks a 'Link' tag, React Router prevents the browser from navigating to the new page and fetching new index.html
+file; URL still changes; 'History' sees updated URL, takes URL and sends it to BrowserRouter; BrowserRouter communicates
+the URL to Route components. */
 const PageOne = () => {
     return <div>PageOne
-        <a href="/pagetwo">Navigate to Page Two</a>
+        <Link to="/pagetwo">Navigate to Page Two</Link>
     </div>
 };
 
@@ -16,7 +21,7 @@ const PageTwo = () => {
     return (
         <div>
             PageTwo
-            <a href="/">Navigate to Page One</a>
+            <Link to="/">Navigate to Page One</Link>
         </div>
     );
 };
