@@ -26,6 +26,17 @@ const PageTwo = () => {
     );
 };
 
+/* React has three types of routers available (the only difference is the part of the url that those routers look at):
+1. BrowserRouter -> Uses everything after the TLD (.com, .net) or port as the 'path'. This is the most complicated to
+deploy inside of any realistic setting because we have to tell the server to always dish the root index.html page if the
+URL route does not match with any of the dev resources file (e.g. localhost:3000/favicon.ico). Otherwise, if the server
+is not setup like that it will return a 404 error. Some servers do not even allow us to do this setup (like GitHub
+pages) -- in that case we should use the HashRouter.
+2. HashRouter -> Uses everything after a # as the 'path' [In localhost:3000/#/pagetwo, it looks at only /pagetwo]. Using
+this avoids the complicated deployment procedure of the BrowserRouter because servers ignore everything after # and load
+everything the URL before the #. Therefore we do not need to configure the server.
+3. MemoryRouter -> Doesn't use the URL to track navigation. It navigates but without changing the URL.
+ */
 const App = () => {
     return (
         <div>
