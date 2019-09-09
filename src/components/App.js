@@ -8,12 +8,9 @@ import StreamDelete from './streams/StreamDelete';
 import StreamShow from './streams/StreamShow';
 import Header from './Header';
 
-/* Because we have a Link element inside the Header component, we have to place it inside the BrowserRouter element. If
-we place it outside, we get the error: "You should not use <Link> outside a <Router>." */
 const App = () => {
     return (
         <div className="ui container">
-            <h1>Header!</h1>
             <BrowserRouter>
                 <div>
                     <Header/>
