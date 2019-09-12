@@ -1,6 +1,10 @@
 import React from 'react';
 
 class GoogleAuth extends React.Component {
+    /* Right now only the GoogleAuth component knows whether we have signed in or signed out. This is inconvenient
+    because we want this information to be centralised so that any component that needs this information can access it.
+    That is why we will use the Redux store to store this information.
+     */
     state = { isSignedIn: null };
 
     componentDidMount() {
@@ -23,11 +27,11 @@ class GoogleAuth extends React.Component {
         this.setState({ isSignedIn: this.auth.isSignedIn.get() });
     };
 
-    onSignIn = () => {
+    onSignInClick = () => {
         this.auth.signIn();
     };
 
-    onSignOut = () => {
+    onSignOutClick = () => {
         this.auth.signOut();
     };
 
@@ -36,14 +40,14 @@ class GoogleAuth extends React.Component {
             return null;
         } else if (this.state.isSignedIn) {
             return (
-                <button onClick={this.onSignOut} className="ui red google button">
+                <button onClick={this.onSignOutClick} className="ui red google button">
                     <i className="google icon" />
                     Sign Out
                 </button>
             );
         } else {
             return (
-                <button onClick={this.onSignIn} className="ui red google button">
+                <button onClick={this.onSignInClick} className="ui red google button">
                     <i className="google icon" />
                     Sign In With Google
                 </button>
