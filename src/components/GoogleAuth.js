@@ -7,8 +7,6 @@ class GoogleAuth extends React.Component {
     because we want this information to be centralised so that any component that needs this information can access it.
     That is why we will use the Redux store to store this information.
      */
-    state = { isSignedIn: null };
-
     componentDidMount() {
         /* This will just initialize the OAuth library; it's not going to actually take the user through the process. */
         /* For full documentation of the GAPI library, we can visit:
@@ -19,7 +17,7 @@ class GoogleAuth extends React.Component {
                 scope: 'email'
             }).then(() => {
                 this.auth = window.gapi.auth2.getAuthInstance();
-                this.setState({ isSignedIn: this.auth.isSignedIn.get() });
+                this.onAuthChange(this.auth.isSignedIn.get());
                 this.auth.isSignedIn.listen(this.onAuthChange);
             });
         });
@@ -42,9 +40,9 @@ class GoogleAuth extends React.Component {
     };
 
     renderAuthButton() {
-        if (this.state.isSignedIn === null) {
+        if (this.props.isSignedIn === null) {
             return null;
-        } else if (this.state.isSignedIn) {
+        } else if (this.props.isSignedIn) {
             return (
                 <button onClick={this.onSignOutClick} className="ui red google button">
                     <i className="google icon" />
@@ -66,7 +64,11 @@ class GoogleAuth extends React.Component {
     }
 }
 
+const mapStateToProps = state => {
+    return { isSignedIn: state.auth.isSignedIn }
+};
+
 export default connect(
-    null,
+    mapStateToProps,
     { signIn, signOut }
 )(GoogleAuth);
