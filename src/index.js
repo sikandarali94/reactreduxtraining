@@ -3,6 +3,7 @@ us. It also creates a reducer for us. In other words, Redux form makes use of th
 automatically. All we need to do is make sure that the form information is being set on the appropriate input elements
 and that the input elements call some callback handler to handle onChange events so that Redux store is updated with the
 latest form information. */
+/* We can find the Redux form documentation at: www.redux-form.com */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
