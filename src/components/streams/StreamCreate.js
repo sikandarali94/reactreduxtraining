@@ -16,17 +16,28 @@ class StreamCreate extends React.Component {
         );
     }
 
+    onSubmit(formValues) {
+        /* Because we want are passing the onSubmit method through the handleSubmit method, we don't receive the event
+        object but rather receive just the form values e.g. { title: 'form title', description: 'blank' }. Plus, we
+        don't have to call event.preventDefault() as Redux form takes care of this for us when we use the handleSubmit
+        method. */
+
+    }
+
     /* We can make Field any kind of input like text, checkbox, number and so forth depending on the props we pass into
     the component. We must pass a component (indicating whether the input field is text, checkbox, number, radio button,
     etc.) prop into Field, otherwise, we will get an error message. */
     /* The label props, because the Field component does not know what to do with it, will get passed onto the
-    component returned by the renderInput method.
-     */
+    component returned by the renderInput method. */
+    /* Because we are using Redux forms, and the fact that Redux forms provides us with additional component props to
+    handle forms, we should handle actions like submission with the methods provided on the props by Redux forms, as
+    shown below with the usage of handleSubmit. */
     render() {
         return (
-            <form className="ui form">
+            <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form">
                 <Field name="title" component={this.renderInput} label="Enter Title" />
                 <Field name="description" component={this.renderInput} label="Enter Description" />
+                <button className="ui button primary">Submit</button>
             </form>
         );
     }
