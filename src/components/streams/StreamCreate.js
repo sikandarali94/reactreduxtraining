@@ -43,6 +43,22 @@ class StreamCreate extends React.Component {
     }
 }
 
+const validate = formValues => {
+    const errors = {};
+
+    if (!formValues.title) {
+        errors.title = 'You must enter a title';
+    }
+
+    if (!formValues.description) {
+        errors.description = 'You must enter a description';
+    }
+
+    /* To tell Redux form that the form is valid, we return an empty object. However, if we want to tell Redux form that
+    the form is invalid, we put a key-value pair on the object with the name of the field and the error message. */
+    return errors;
+};
+
 /* Unlike the connect function which takes separate arguments, reduxForm instead receives a single object where we put
 a bunch of configuration into that object. reduxForm hooks up a ton of props into our component like blur, change,
 dispatch, invalid, and a whole lot more! */
