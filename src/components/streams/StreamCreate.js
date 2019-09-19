@@ -4,14 +4,17 @@ the connect function that is used with the react-redux library. */
 import { Field, reduxForm } from 'redux-form';
 
 class StreamCreate extends React.Component {
-    renderInput({ input, label }) {
+    renderInput({ input, label, meta }) {
         /* The first argument is where we get important info and helpers (e.g. onChange) for our form input. The line
         below was shortened from: <input onChange={formProps.input.onChange} value={formProps.input.value}/>. The line
         below is essentially populating the input element with all the properties of input that we destructured. */
+        /* The meta property has a property called error that has a string value of the error message we assigned in the
+        validate method for that particular form input. */
         return (
             <div className="field">
                 <label>{ label }</label>
                 <input {...input} />
+                <div>{meta.error}</div>
             </div>
         );
     }
@@ -63,6 +66,11 @@ const validate = formValues => {
 a bunch of configuration into that object. reduxForm hooks up a ton of props into our component like blur, change,
 dispatch, invalid, and a whole lot more! */
 /* We must provide a name to the form by passing a value to the form key, as shown below. */
+/* We rig up our validation method in our reduxForm method, as shown below. Any error messages that we want to display,
+the error string populated by the validate method is then passed to the Field component render method (in our case the
+renderInput method) that is not valid, as dictated by the property keys (e.g. error.title and error.description in our
+case) which correspond to the form input names (name="title" and name="description" in our case)*/
 export default reduxForm({
-    form: 'streamCreate'
+    form: 'streamCreate',
+    validate
 })(StreamCreate);
