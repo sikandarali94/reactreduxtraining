@@ -4,7 +4,21 @@ the connect function that is used with the react-redux library. */
 import { Field, reduxForm } from 'redux-form';
 
 class StreamCreate extends React.Component {
-    renderInput({ input, label, meta }) {
+    renderError({error, touched}) {
+        /* touched property of the meta object tells us if the user has interacted with the form input. It is then a
+        good idea to show errors once after a user has started interacting with the particular form input. */
+        if (touched && error) {
+            /* Semantic UI hides the error message, so therefore, we have to work with Semantic UI to display the error
+            message. */
+            return (
+                <div className="ui error message">
+                    <div className="header">{error}</div>
+                </div>
+            );
+        }
+    }
+
+    renderInput = ({ input, label, meta }) => {
         /* The first argument is where we get important info and helpers (e.g. onChange) for our form input. The line
         below was shortened from: <input onChange={formProps.input.onChange} value={formProps.input.value}/>. The line
         below is essentially populating the input element with all the properties of input that we destructured. */
@@ -13,11 +27,11 @@ class StreamCreate extends React.Component {
         return (
             <div className="field">
                 <label>{ label }</label>
-                <input {...input} />
-                <div>{meta.error}</div>
+                <input {...input} autoComplete="off"/>
+                {this.renderError(meta)}
             </div>
         );
-    }
+    };
 
     onSubmit(formValues) {
         /* Because we want are passing the onSubmit method through the handleSubmit method, we don't receive the event
