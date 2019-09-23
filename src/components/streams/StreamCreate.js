@@ -19,13 +19,16 @@ class StreamCreate extends React.Component {
     }
 
     renderInput = ({ input, label, meta }) => {
+        /* The error class on the input highlights the form input as red. However, this class is not the one that shows
+        the error message. */
+        const className = `field ${meta.error && meta.touched ? 'error' : ''}`;
         /* The first argument is where we get important info and helpers (e.g. onChange) for our form input. The line
         below was shortened from: <input onChange={formProps.input.onChange} value={formProps.input.value}/>. The line
         below is essentially populating the input element with all the properties of input that we destructured. */
         /* The meta property has a property called error that has a string value of the error message we assigned in the
         validate method for that particular form input. */
         return (
-            <div className="field">
+            <div className={className}>
                 <label>{ label }</label>
                 <input {...input} autoComplete="off"/>
                 {this.renderError(meta)}
@@ -49,9 +52,10 @@ class StreamCreate extends React.Component {
     /* Because we are using Redux forms, and the fact that Redux forms provides us with additional component props to
     handle forms, we should handle actions like submission with the methods provided on the props by Redux forms, as
     shown below with the usage of handleSubmit. */
+    /* To get Semantic UI to display error messages we put the error class on the form, as shown below. */
     render() {
         return (
-            <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form">
+            <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form error">
                 <Field name="title" component={this.renderInput} label="Enter Title" />
                 <Field name="description" component={this.renderInput} label="Enter Description" />
                 <button className="ui button primary">Submit</button>
