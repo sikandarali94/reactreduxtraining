@@ -26,7 +26,9 @@ class StreamCreate extends React.Component {
         );
     };
 
-    onSubmit(formValues) {}
+    onSubmit = formValues => {
+        this.props.createStream(formValues);
+    };
 
     render() {
         return (
@@ -53,7 +55,10 @@ const validate = formValues => {
     return errors;
 };
 
-export default reduxForm({
+const formWrapped = reduxForm({
     form: 'streamCreate',
     validate
 })(StreamCreate);
+
+/* Below is how we can hook up both the connect method and reduxForm method to our component. */
+export default connect(null, { createStream })(formWrapped);
