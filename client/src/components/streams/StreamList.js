@@ -36,6 +36,9 @@ class StreamList extends React.Component {
     }
 
     renderCreate() {
+        /* Using the Link component to navigate the application is known as 'Intentional Navigation' where a user clicks
+        on a 'Link' component. The other type of navigation is known as 'Programmatic Navigation' where we (developer)
+        run code to forcibly navigate the user through our app. */
         if (this.props.isSignedIn) {
             return (
                 <div style={{ textAlign: 'right' }}>
