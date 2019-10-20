@@ -16,6 +16,8 @@ const App = () => {
     a plain Router rather than BrowserRouter and pass the history object as a prop to it. Changing from BrowserRouter
     to a plain Router does not mess up the routing in anyway; the only difference is that we are in control of the
     history object as opposed to React. */
+    /* When we write ':' and then any name e.g. ':id' in the URL path, the react router will understand that to be a
+    URL param. */
     return (
         <div className="ui container">
             <Router history={history}>
@@ -23,7 +25,7 @@ const App = () => {
                     <Header/>
                     <Route path="/" exact component={StreamList}/>
                     <Route path="/streams/new" exact component={StreamCreate}/>
-                    <Route path="/streams/edit" exact component={StreamEdit}/>
+                    <Route path="/streams/edit/:id" exact component={StreamEdit}/>
                     <Route path="/streams/delete" exact component={StreamDelete}/>
                     <Route path="/streams/show" exact component={StreamShow}/>
                 </div>
