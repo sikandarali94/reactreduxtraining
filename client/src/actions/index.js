@@ -1,3 +1,6 @@
+/* URL-based selection (e.g. /streams/delete/:id) is the preferred way of dynamically showing data based on the URL. In
+our case, we are going to put the ID (e.g. :id = 17) of the stream being edited in the URL (e.g. /streams/edit/:id =
+/streams/edit/17). */
 import streams from '../apis/streams';
 import {
     SIGN_IN,
