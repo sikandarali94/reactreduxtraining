@@ -25,6 +25,10 @@ const App = () => {
                     <Header/>
                     <Route path="/" exact component={StreamList}/>
                     <Route path="/streams/new" exact component={StreamCreate}/>
+                    {/* Because, for example, we hooked up StreamEdit as a component to be rendered depending on the URL
+                    path, it is passed special props from React Router DOM: history, location, match and staticContext.
+                    These properties help us deal with routes and get information about them. For example, there is a
+                    property called params in the match object, which holds the URL param values. */}
                     <Route path="/streams/edit/:id" exact component={StreamEdit}/>
                     <Route path="/streams/delete" exact component={StreamDelete}/>
                     <Route path="/streams/show" exact component={StreamShow}/>
