@@ -18,8 +18,7 @@ class StreamEdit extends React.Component {
 
 /* mapStateToProps can be called with two arguments. The second argument gets passed all the props of the component
 connected to the mapStateToProps method (in our case, the props passed to StreamEdit gets passed down into the ownProps
-argument of the mapStateToProps method).
- */
+argument of the mapStateToProps method). */
 const mapStateToProps = (state, ownProps) => {
     return { stream: state.streams[ownProps.match.params.id] };
 };
