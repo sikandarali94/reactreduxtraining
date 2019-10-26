@@ -11,7 +11,7 @@ class StreamEdit extends React.Component {
     }
 
     onSubmit = formValues => {
-        console.log(formValues);
+        this.props.editStream(this.props.match.params.id, formValues);
     };
 
     /* We are technically not passing props into StreamForm but rather passing props to Redux Form (Redux then turns
