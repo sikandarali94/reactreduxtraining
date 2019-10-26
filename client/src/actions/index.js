@@ -48,7 +48,13 @@ export const fetchStream = id => async dispatch => {
 };
 
 export const editStream = (id, formValues) => async dispatch => {
-    const response = await streams.put(`/streams/${id}`, formValues);
+    /* One thing with PUT requests are that whatever properties we put inside the body of the request are going to
+    replace all the properties inside of the record that we're trying to update. If we want to just update some
+    properties inside of the record rather than all, we actually use a PATCH request, as shown below. Now some people,
+    when designing the backend API or backend servers, disregard the PUT request rule and just merge properties inside
+    of the record (just like PATCH request) rather than dropping of the properties that are not inside the body of the
+    request. */
+    const response = await streams.patch(`/streams/${id}`, formValues);
 
     dispatch({ type: EDIT_STREAM, payload: response.data });
     history.push('/');

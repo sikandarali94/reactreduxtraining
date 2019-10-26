@@ -9,6 +9,12 @@
       "title": "I Created This Stream",
       "description": "This stream is about refactoring",
       "id": 2
+    },
+    {
+      "title": "Another Stream. Oh Boy!",
+      "description": "This change was made by a PATCH request!",
+      "userId": "117353301264903631278",
+      "id": 3
     }
   ]
 }
