@@ -18,5 +18,4 @@ class StreamCreate extends React.Component {
     }
 }
 
-/* Below is how we can hook up both the connect method and reduxForm method to our component. */
 export default connect(null, { createStream })(StreamCreate);
