@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from '../Modal';
+import history from '../../history';
 
 const StreamDelete = () => {
     /* It's not valid JS syntax to just have two or more elements separate and not contained in a parent element e.g.
@@ -38,6 +39,7 @@ const StreamDelete = () => {
                 title="Delete Stream"
                 content="Are you sure you want to delete this stream?"
                 actions={actions}
+                onDismiss={() => history.push('/')}
             />
         </div>
     );
