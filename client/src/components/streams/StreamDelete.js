@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import Modal from '../Modal';
 import history from '../../history';
-import { fetchStream } from '../../actions';
+import { fetchStream, deleteStream } from '../../actions';
 
 class StreamDelete extends React.Component {
     /* It's not valid JS syntax to just have two or more elements separate and not contained in a parent element e.g.
@@ -33,10 +34,11 @@ class StreamDelete extends React.Component {
     }
 
     renderActions() {
+        const { id } = this.props.match.params;
         return (
             <React.Fragment>
-                <button className="ui button negative">Delete</button>
-                <button className="ui button">Cancel</button>
+                <button onClick={() => this.props.deleteStream(id)} className="ui button negative">Delete</button>
+                <Link to="/" className="ui button">Cancel</Link>
             </React.Fragment>
         );
     }
@@ -67,5 +69,5 @@ const mapStateToProps = (state, ownProps) => {
 
 export default connect(
     mapStateToProps,
-    { fetchStream }
+    { fetchStream, deleteStream }
 )(StreamDelete);
